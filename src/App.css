@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+svg {
+  background-color: #61dafb;
+  overflow: visible;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

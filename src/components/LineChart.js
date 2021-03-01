@@ -7,27 +7,39 @@ import {
   axisRight,
   scaleLinear,
 } from "d3";
+import useResizeObserver from "../hooks/useResizeObserver";
 
 function LineChart() {
   const [data, setData] = useState([25, 30, 45, 60, 20]);
   const svgRef = useRef();
+  const wrapperRef = useRef();
+  const dimensions = useResizeObserver(wrapperRef);
 
   useEffect(() => {
     const svg = select(svgRef.current);
+
+    if (!dimensions) return;
+
     const xScale = scaleLinear()
       .domain([0, data.length - 1])
-      .range([0, 300]);
+      .range([0, dimensions.width]);
 
-    const yScale = scaleLinear().domain([0, 150]).range([150, 0]);
+    const yScale = scaleLinear().domain([0, 150]).range([dimensions.height, 0]);
 
     const xAxis = axisBottom(xScale)
       .ticks(data.length)
       .tickFormat((index) => index + 1);
     const yAxis = axisRight(yScale);
 
-    svg.select(".x-axis").style("transform", "translateY(150px)").call(xAxis);
+    svg
+      .select(".x-axis")
+      .style("transform", `translateY(${dimensions.height}px)`)
+      .call(xAxis);
 
-    svg.select(".y-axis").style("transform", "translateX(300px)").call(yAxis);
+    svg
+      .select(".y-axis")
+      .style("transform", `translateX(${dimensions.width}px)`)
+      .call(yAxis);
 
     const myLine = line()
       .x((value, index) => xScale(index))
@@ -42,16 +54,17 @@ function LineChart() {
       .attr("d", (value) => myLine(value))
       .attr("fill", "none")
       .attr("stroke", "blue");
-  }, [data]);
+  }, [data, dimensions]);
 
   return (
     <>
-      <svg ref={svgRef}>
-        <g className='x-axis' />
-        <g className='y-axis' />
-      </svg>
+      <div ref={wrapperRef}>
+        <svg ref={svgRef}>
+          <g className='x-axis' />
+          <g className='y-axis' />
+        </svg>
+      </div>
       <br />
-      <div style={{ marginBottom: "50px" }}></div>
       <button
         onClick={() => {
           setData(data.map((val) => val + 5));

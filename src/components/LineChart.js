@@ -57,7 +57,7 @@ function LineChart() {
   }, [data, dimensions]);
 
   return (
-    <>
+    <React.Fragment>
       <div ref={wrapperRef}>
         <svg ref={svgRef}>
           <g className='x-axis' />
@@ -79,7 +79,7 @@ function LineChart() {
       >
         Filter data
       </button>
-    </>
+    </React.Fragment>
   );
 }
 

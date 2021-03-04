@@ -38,6 +38,7 @@ svg {
   overflow: visible;
   display: block;
   width: 100%;
+  min-height: 300px;
 }
 
 button {

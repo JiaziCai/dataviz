@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { select, geoPath, geoMercator, min, max, scaleLinear } from "d3";
-import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "../hooks/useResizeObserver";
 
 /**
  * Component that renders a map of Germany.

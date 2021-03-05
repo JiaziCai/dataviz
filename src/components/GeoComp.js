@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import GeoChart from "./GeoChart";
 import data from "../GeoChart.world.geo.json";
 
-function GeoComp() {
+const GeoComp = () => {
   const [property, setProperty] = useState("pop_est");
   return (
     <React.Fragment>
@@ -20,6 +20,6 @@ function GeoComp() {
       </select>
     </React.Fragment>
   );
-}
+};
 
 export default GeoComp;

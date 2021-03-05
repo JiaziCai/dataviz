@@ -43,8 +43,6 @@ function ForceChart({ data }) {
       .force("charge", forceManyBody().strength(-30))
       .force("collide", forceCollide(30))
       .on("tick", () => {
-        console.log("current force", simulation.alpha());
-
         // current alpha text
         svg
           .selectAll(".alpha")
@@ -93,7 +91,6 @@ function ForceChart({ data }) {
 
     svg.on("mousemove", () => {
       const [x, y] = pointer(svgRef.current);
-      console.log(svgRef.current);
       simulation
         .force(
           "x",
@@ -107,7 +104,6 @@ function ForceChart({ data }) {
 
     svg.on("click", () => {
       const [x, y] = pointer(svgRef.current);
-      console.log(x, y);
       simulation
         .alpha(0.5)
         .restart()

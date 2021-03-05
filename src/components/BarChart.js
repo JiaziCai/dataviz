@@ -13,7 +13,6 @@ function BarChart() {
     const svg = select(svgRef.current);
 
     if (!dimensions) return;
-    console.log(dimensions);
     // scales
     const xScale = scaleBand()
       .domain(data.map((value, index) => index))

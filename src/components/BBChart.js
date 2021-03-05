@@ -21,7 +21,6 @@ function BBChart() {
     fetch("https://www.breakingbadapi.com/api/episodes?series=Breaking+Bad")
       .then((response) => response.ok && response.json())
       .then((episodes) => {
-        console.warn(episodes);
         setBbEpisodes(episodes);
       })
       .catch(console.error);

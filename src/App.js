@@ -6,6 +6,7 @@ import BBChart from "./components/BBChart";
 import RaceHorse from "./components/RaceHorse";
 import Tree from "./components/Tree";
 import GeoComp from "./components/GeoComp";
+import Brush from "./components/Brush";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       <Tree />
       <div style={{ marginBottom: "100px" }}></div>
       <GeoComp />
+      <div style={{ marginBottom: "100px" }}></div>
+      <Brush />
+      <div style={{ marginBottom: "100px" }}></div>
     </>
   );
 }

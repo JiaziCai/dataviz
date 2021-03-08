@@ -2,47 +2,38 @@ body {
   margin: 60px;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 svg {
   display: block;
+  width: 100%;
+  height: 300px;
+  background: #f7f7f7;
+  overflow: visible;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+svg rect.selection {
+  stroke: none;
 }
+
+table {
+  height: 200px;
+  background: #eee;
+}
+
 #root {
   display: flex;
   flex-direction: column;
-  align-items: center;
   align-items: stretch;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-svg {
-  background-color: #61dafb;
-  overflow: visible;
-  display: block;
-  width: 100%;
-  min-height: 300px;
   height: 100vh;
+  padding: 0 50px 150px;
   text-align: center;
   box-sizing: border-box;
+  margin-top: 140%;
+  margin-bottom: 140%;
 }
 
 button {
+  width: 100px;
+  border: 1px solid black;
   margin: 0 auto 5px;
 }
